@@ -5,7 +5,10 @@ import CidadeList from '@/views/cidade-list.vue';
 import AgenciaList from '@/views/agencia-list.vue';
 import ClienteList from '@/views/cliente-list.vue';
 import CidadeForm from '@/views/cidade-form.vue';
+import CidadeSearch from '@/views/cidade-search.vue';
 import Erro404 from '@/views/404.vue';
+import AgenciaForm from '@/views/agencia-form.vue'
+import ClienteForm from '@/views/cliente-form.vue'
 
 Vue.use(Router);
 
@@ -30,8 +33,16 @@ export default new Router({
       component: ClienteList
     },
     {
+      path: '/cliente-form',
+      component: ClienteForm
+    },
+    {
       path: '/agencias',
       component: AgenciaList
+    },
+    {
+      path: '/agencia-form',
+      component: AgenciaForm
     },
     {
       path: '*',

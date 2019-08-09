@@ -1,11 +1,12 @@
 <template>
     <div><br>
-        <center><h1>Cadastrar uma nova cidade</h1></center>
+        <center><h1>Cadastrar uma nova Agência</h1></center>
 
-        <v-form>
-        <center><v-text-field label="Nome" class="form" v-model="cidade.nome"></v-text-field></center>
-        <center><v-text-field label="UF" class="form" v-model="cidade.estado"></v-text-field></center>
-        </v-form>
+        <center>
+            <v-text-field label="Número" class="form" width="50%" v-model="agencia.numero"></v-text-field>
+            <v-text-field label="Dígito" class="form" width="50%" v-model="agencia.digito"></v-text-field>
+            <v-text-field label="Cidade" class="form" width="50%" v-model="agencia.cidade"></v-text-field>
+        </center>
         
         <center><v-btn color="success" class="botao" dark @click="salvar">Salvar</v-btn>
         <v-btn color="error" class="botao" dark @click="cancelar">Cancelar</v-btn></center>
@@ -17,27 +18,25 @@
 import { Vue, Component } from 'vue-property-decorator';
 import axios from 'axios';
 @Component
-export default class CidadeForm extends Vue {
+export default class AgenciaForm extends Vue {
 
-    cidade = {
-        nome: '',
-        estado: ''
+    agencia = {
+        numero: '',
+        digito: '',
+        cidades: ''
     }
-
-    status = '';
 
     salvar(){
         axios
-            .post('/api/cidades', this.cidade)
+            .post('/api/agencia', this.agencia)
             .then(response => {
                 console.log(response)
             })
             .catch(error => console.log(error));
-
     }
 
     cancelar(){
-        this.$router.push('/cidades');
+        this.$router.push('/agencias');
     }
 
 }
@@ -53,4 +52,3 @@ export default class CidadeForm extends Vue {
     text-align: center;
 }
 </style>
-

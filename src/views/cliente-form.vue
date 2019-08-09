@@ -1,10 +1,10 @@
 <template>
     <div><br>
-        <center><h1>Cadastrar uma nova cidade</h1></center>
+        <center><h1>Cadastrar um novo Cliente</h1></center>
 
         <v-form>
-        <center><v-text-field label="Nome" class="form" v-model="cidade.nome"></v-text-field></center>
-        <center><v-text-field label="UF" class="form" v-model="cidade.estado"></v-text-field></center>
+        <center><v-text-field label="Nome" class="form" v-model="cliente.nome"></v-text-field></center>
+        <center><v-text-field label="CPF" class="form" v-model="cliente.cpf"></v-text-field></center>
         </v-form>
         
         <center><v-btn color="success" class="botao" dark @click="salvar">Salvar</v-btn>
@@ -17,18 +17,18 @@
 import { Vue, Component } from 'vue-property-decorator';
 import axios from 'axios';
 @Component
-export default class CidadeForm extends Vue {
+export default class ClienteForm extends Vue {
 
-    cidade = {
+    cliente = {
         nome: '',
-        estado: ''
+        cpf: ''
     }
 
     status = '';
 
     salvar(){
         axios
-            .post('/api/cidades', this.cidade)
+            .post('/api/cliente', this.cidade)
             .then(response => {
                 console.log(response)
             })
@@ -37,7 +37,7 @@ export default class CidadeForm extends Vue {
     }
 
     cancelar(){
-        this.$router.push('/cidades');
+        this.$router.push('/clientes');
     }
 
 }
@@ -53,4 +53,3 @@ export default class CidadeForm extends Vue {
     text-align: center;
 }
 </style>
-
